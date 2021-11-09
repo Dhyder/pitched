@@ -1,0 +1,52 @@
+{% extends 'base.html'%}
+{% import 'macros.html' as macro%}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{%block styles%}
+    {{ super() }}
+    <link href="https://fonts.googleapis.com/css?family=Lora&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='bootstrap.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='themefisher-fonts.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='magnific-popup.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='animate.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='slick.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}">
+{%endblock%}
+<!-- Content block -->
+{%block content%}
+
+<div class="container" style="font-family: 'Poppins', serif; background-image: url(https://user-images.githubusercontent.com/86789832/140779513-7d13266c-4219-40e1-a52b-fa26f622f8e7.jpg);background-repeat:no-repeat; background-size: 100%; border-radius: 15px; margin-top: 10%;padding-bottom: 200px;margin-bottom: 100px;">
+    <div class="row">
+        <h3 style="text-align:center; justify-content:center;display: flex;">{{pitch.pitch_title}}</h3>
+        <hr style='width: 50%''>
+        <p style="text-align:center; justify-content:center;display: flex;">{{pitch.pitch_content}}</p>
+        <span>
+        <p style="text-align:center; justify-content:center;display: flex;">Posted on {{date}} by {{pitch.user.username| capitalize}}</p>
+        <p style="text-align:center; justify-content:center;display: flex;">
+            <a href="/pitch/{{pitch.id}}?like=1">
+                <i style="color: green" class="far fa-thumbs-up"><br></i>
+            </a>{{pitch.likes}} <a href="/pitch/{{pitch.id}}?dislike=1">
+                <i style="color: red" class="far fa-thumbs-down"></i>
+        
+        </a>{{pitch.dislikes}}</p></span>
+
+    </div>
+    <div class="row">
+        <h4 style="text-align:centre; justify-content:center;display: flex;">Comments</h4>
+        <hr style='width: 80%;'>
+        {% if current_user.is_authenticated %}
+            {{ wtf.quick_form(comment_form) }}
+        {%endif%}
+        {{macro.displayComments(comments)}}
+    </div>
+
+</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="{{url_for('static', filename='bootstrap.min.js')}}"></script>
+<script src="{{url_for('static', filename='slick.min.js')}}"></script>
+<script src="{{url_for('static', filename='jquery.filterizr.min.js')}}"></script>
+<script src="{{url_for('static', filename='jquery.magnific-popup.min.js')}}"></script>
+<script src="{{url_for('static', filename='parallax.min.js')}}"></script>
+<script src="{{url_for('static', filename='script.js')}}"></script>
+{%endblock%}
