@@ -1,0 +1,5 @@
+Hello {{user.username}}
+Welcome to Pug Pitch
+You have successfuly signed up for the application and can now start creating your own pitch revolutions and sharing them with everyone.
+Good luck.
+#vivalarevolucion

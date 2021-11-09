@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 {% import 'macros.html' as macro %}
 {%block styles%}
-    {{ super() }}
-    <link href="https://fonts.googleapis.com/css?family=Lora&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='bootstrap.min.css') }}">
+{{ super() }}
+<link href="https://fonts.googleapis.com/css?family=Lora&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+    integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='bootstrap.min.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='themefisher-fonts.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='magnific-popup.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='animate.css') }}">
@@ -14,7 +15,8 @@
 
 {%block content%}
 <link href="https://fonts.googleapis.com/css?family=Lora&display=swap" rel="stylesheet">
-<div class="jumbotron text-center" style="background-color:#0000; color: #facd8a; padding-top:20px 20px; margin: 50px; font-family: 'Poppins', serif;">
+<div class="jumbotron text-center"
+    style="background-color:#0000; color: #facd8a; padding-top:20px 20px; margin: 50px; font-family: 'Poppins', serif;">
     <h1>Interview Pitches</h1>
 </div>
 <div class="container" style="font-family: 'Lora', serif;">
